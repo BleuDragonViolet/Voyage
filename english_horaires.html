@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyDream Voyages - Horaires</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-out;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        nav a:hover {
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .container h1 {
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+
+        .schedule {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .schedule th,
+        .schedule td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .schedule th {
+            background-color: #ff6600;
+            color: white;
+        }
+
+        .schedule img {
+            width: 30px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .flag {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .flag:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        SkyDream Voyages -
+        Schedules
+
+        <nav>
+            <a href="index_Anglais.html">Welcome</a>
+            <a href="english_horaires.html">Schedules</a>
+            <a href="english_prix.html">Price</a>
+            <a href="english_renseignements.html">Information</a>
+        </nav>
+    </header>
+    <img src="img/fimage.png" alt="English" class="flag" onclick="window.location.href='Horaires.html'">
+    <div class="container">
+        <h1>
+            Flight Schedules</h1>
+        <table class="schedule">
+            <tr>
+                <th>Destination</th>
+                <th>Departure Time</th>
+                <th>
+                    Arrival Time</th>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - New York <img src="img/image.png" alt="USA"></td>
+                <td>08:30</td>
+                <td>14:15</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Tokyo <img src="img/Japon.png" alt="Japan"></td>
+                <td>10:00</td>
+                <td>23:45</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Londres <img src="img/image.png" alt="UK"></td>
+                <td>12:15</td>
+                <td>13:30</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Dubai <img src="img/uae.png" alt="UAE"></td>
+                <td>14:45</td>
+                <td>22:10</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Sydney <img src="img/australia.png" alt="Australia">
+                </td>
+                <td>21:00</td>
+                <td>11:00 (J+1)</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Dakar <img src="img/senegal.png" alt="Senegal"></td>
+                <td>07:45</td>
+                <td>13:10</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Abidjan <img src="img/ivorycoast.png"
+                        alt="Ivory Coast"></td>
+                <td>09:30</td>
+                <td>15:55</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Nairobi <img src="img/kenya.png" alt="Kenya"></td>
+                <td>11:15</td>
+                <td>20:45</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Le Caire <img src="img/egypt.png" alt="Egypt"></td>
+                <td>13:50</td>
+                <td>19:20</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Johannesburg <img src="img/southafrica.png"
+                        alt="South Africa"></td>
+                <td>16:25</td>
+                <td>02:10 (J+1)</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Lagos <img src="img/nigeria.png" alt="Nigeria"></td>
+                <td>18:00</td>
+                <td>23:30</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Casablanca <img src="img/morocco.png" alt="Morocco">
+                </td>
+                <td>19:45</td>
+                <td>22:15</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Bamako <img src="img/mali.png" alt="Mali"></td>
+                <td>22:10</td>
+                <td>03:50 (J+1)</td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

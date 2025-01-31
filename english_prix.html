@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyDream Voyages - Prix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-out;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        nav a:hover {
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+        .container {
+            text-align: center;
+            padding: 50px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in;
+        }
+        .container h1 {
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+        .pricing-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .pricing-table th, .pricing-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .pricing-table th {
+            background-color: #ff6600;
+            color: white;
+        }
+        .pricing-table img {
+            width: 30px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .flag {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .flag:hover {
+            transform: scale(1.1);
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        SkyDream Voyages - Price
+
+    <nav>
+        <a href="index_Anglais.html">Welcome</a>
+        <a href="english_horaires.html">Schedules</a>
+        <a href="english_prix.html">Price</a>
+        <a href="english_renseignements.html">Information</a>
+    </nav>    </header>
+    <img src="img/fimage.png" alt="English" class="flag" onclick="window.location.href='prix.html'">
+    <div class="container">
+        <h1>Flight Prices</h1>
+        <table class="pricing-table">
+            <tr>
+                <th>Destination</th>
+                <th>
+                    Price (€)</th>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - New York <img src="img/image.png" alt="USA"></td>
+                <td>450€</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Tokyo <img src="img/Japon.png" alt="Japan"></td>
+                <td>700€</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Londres <img src="img/image.png" alt="UK"></td>
+                <td>120€</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Dubai <img src="img/uae.png" alt="UAE"></td>
+                <td>500€</td>
+            </tr>
+            <tr>
+                <td><img src="img/fimage.png" alt="France"> Paris - Sydney <img src="img/australia.png" alt="Australia"></td>
+                <td>900€</td>
+            </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Dakar <img src="img/senegal.png" alt="Senegal"></td>
+                    <td>380€</td>
+                </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Abidjan <img src="img/ivorycoast.png" alt="Ivory Coast"></td>
+                    <td>420€</td>
+                </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Nairobi <img src="img/kenya.png" alt="Kenya"></td>
+                    <td>550€</td>
+                </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Le Caire <img src="img/egypt.png" alt="Egypt"></td>
+                    <td>290€</td>
+                </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Johannesburg <img src="img/southafrica.png" alt="South Africa"></td>
+                    <td>680€</td>
+                </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Lagos <img src="img/nigeria.png" alt="Nigeria"></td>
+                    <td>470€</td>
+                </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Casablanca <img src="img/morocco.png" alt="Morocco"></td>
+                    <td>150€</td>
+                </tr>
+                <tr>
+                    <td><img src="img/fimage.png" alt="France"> Paris - Bamako <img src="img/mali.png" alt="Mali"></td>
+                    <td>430€</td>
+                </tr>
+        </table>
+    </div>
+</body>
+</html>

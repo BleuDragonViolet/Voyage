@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyDream Voyages - Renseignements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-out;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        nav a:hover {
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .container h1 {
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .info p {
+            margin-bottom: 15px;
+        }
+
+        .flag {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .flag:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        SkyDream Voyages - Information
+
+        <nav>
+            <a href="index_Anglais.html">Welcome</a>
+            <a href="english_horaires.html">Schedules</a>
+            <a href="english_prix.html">Price</a>
+            <a href="english_renseignements.html">Information</a>
+        </nav>
+    </header>
+    <img src="img/fimage.png" alt="English" class="flag" onclick="window.location.href='renseignements.html'">
+    <div class="container">
+        <h1>About SkyDream Voyages</h1>
+        <div class="info">
+            <p><strong>Who are we ?</strong><br>
+                SkyDream Voyages is an agency specializing in air travel, offering flights to the most
+                major destinations around the world. Our mission is to make your travels easier,
+                affordable and pleasant.</p>
+
+            <p><strong>Our services :</strong><br>
+
+                - Booking international and national flights<br>
+
+                - 24/7 travel assistance<br>
+
+                - Exclusive offers and regular promotions<br>
+                - Loyalty programs for our regular customers</p>
+
+            <p><strong>Coordonnées :</strong><br>
+                📍 Address : 25 Avenue des Ailes, Paris, France<br>
+                📞 Phone : +33 1 23 45 67 89<br>
+                ✉ E-mail : contact@skydreamvoyages.com</p>
+        </div>
+    </div>
+</body>
+
+</html>
