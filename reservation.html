@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SkyDream Voyages - Réservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-out;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff6600;
+        }
+
+        select,
+        input[type=number],
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 16px;
+        }
+
+        .seat-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .price {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .confirmation {
+            font-size: 18px;
+            margin-top: 20px;
+            color: green;
+            text-align: center;
+        }
+
+        #loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #ff6600;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .flag {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .flag:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        SkyDream Voyages - Réservation
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="Horaires.html">Horaires</a>
+            <a href="prix.html">Prix</a>
+            <a href="reservation.html">Réservation</a>
+            <a href="renseignements.html">Renseignements</a>
+        </nav>
+    </header>
+    <img src="img/image.png" alt="English" class="flag" onclick="window.location.href='english_reservation.html'">
+    <div class="container">
+        <h2>Réservez votre vol</h2>
+
+        <label for="vol">Choisissez un vol :</label>
+        <select id="vol">
+            <option value="">-- Sélectionnez --</option>
+            <option value="Paris - New York">Paris - New York</option>
+            <option value="Paris - Tokyo">Paris - Tokyo</option>
+            <option value="Paris - Londres">Paris - Londres</option>
+            <option value="Paris - Dubai">Paris - Dubai</option>
+            <option value="Paris - Sydney">Paris - Sydney</option>
+            <option value="Paris - Dakar">Paris - Dakar</option>
+            <option value="Paris - Abidjan">Paris - Abidjan</option>
+            <option value="Paris - Nairobi">Paris - Nairobi</option>
+            <option value="Paris - Le Caire">Paris - Le Caire</option>
+            <option value="Paris - Johannesburg">Paris - Johannesburg</option>
+            <option value="Paris - Lagos">Paris - Lagos</option>
+            <option value="Paris - Casablanca">Paris - Casablanca</option>
+            <option value="Paris - Bamako">Paris - Bamako</option>
+        </select>
+
+        <div id="step2" class="hidden">
+            <label for="places">Nombre de billets :</label>
+            <input type="number" id="places" min="1" max="10" value="1" />
+
+            <div id="siegesContainer"></div>
+
+            <p class="price" id="prixTotal">Prix total : 0€</p>
+
+            <button onclick="nextStep()">Suivant</button>
+        </div>
+
+        <div id="step3" class="hidden">
+            <p style="text-align:center;">Choisissez une méthode de paiement :</p>
+            <div style="text-align:center; margin-bottom: 20px;">
+                <button onclick="startFaceID()">Face ID</button>
+                <button onclick="startFingerprint()">Empreinte Digitale</button>
+            </div>
+
+            <div id="faceIDAnimation" class="hidden" style="text-align:center;">
+                <p>Placez votre visage devant la caméra (posez votre souris ici)</p>
+                <div id="faceCircle"
+                    style="width:100px;height:100px;border:4px solid #ff6600;border-radius:50%;margin:auto;"></div>
+            </div>
+
+            <div id="fingerAnimation" class="hidden" style="text-align:center;">
+                <p>Restez appuyé sur le scanner ci-dessous</p>
+                <div id="fingerScanner" style="width:80px;height:80px;background:#ccc;border-radius:10px;margin:auto;">
+                </div>
+            </div>
+
+            <p id="paymentText" style="text-align:center;"></p>
+        </div>
+
+        <p id="confirmationMessage" class="confirmation hidden">
+            ✅ Paiement validé. Merci de votre visite et bonne journée !
+        </p>
+    </div>
+
+    <script>
+        const volSelect = document.getElementById('vol');
+        const placesInput = document.getElementById('places');
+        const siegesContainer = document.getElementById('siegesContainer');
+        const prixTotal = document.getElementById('prixTotal');
+        const step2 = document.getElementById('step2');
+        const step3 = document.getElementById('step3');
+        const paymentText = document.getElementById('paymentText');
+
+        const prixParVol = {
+            "Paris - New York": 450,
+            "Paris - Tokyo": 700,
+            "Paris - Londres": 120,
+            "Paris - Dubai": 500,
+            "Paris - Sydney": 900,
+            "Paris - Dakar": 380,
+            "Paris - Abidjan": 420,
+            "Paris - Nairobi": 550,
+            "Paris - Le Caire": 290,
+            "Paris - Johannesburg": 680,
+            "Paris - Lagos": 470,
+            "Paris - Casablanca": 150,
+            "Paris - Bamako": 430
+        };
+
+        function updatePrix() {
+            const vol = volSelect.value;
+            const nbPlaces = parseInt(placesInput.value);
+            if (prixParVol[vol] && nbPlaces > 0) {
+                const total = prixParVol[vol] * nbPlaces;
+                prixTotal.textContent = `Prix total : ${total}€`;
+            } else {
+                prixTotal.textContent = "Prix total : 0€";
+            }
+        }
+
+        function generateSiegeSelectors() {
+            siegesContainer.innerHTML = "";
+            const nbPlaces = parseInt(placesInput.value) || 0;
+            const selected = new Set();
+
+            for (let i = 1; i <= nbPlaces; i++) {
+                const div = document.createElement('div');
+                div.className = 'seat-row';
+
+                const label = document.createElement('label');
+                label.textContent = `Place ${i}`;
+
+                const rangeeSelect = document.createElement('select');
+                rangeeSelect.name = `rangee${i}`;
+                rangeeSelect.id = `rangee${i}`;
+                ["A", "B", "C", "D", "E", "F"].forEach(r => {
+                    const opt = document.createElement('option');
+                    opt.value = r;
+                    opt.textContent = `Rangée ${r}`;
+                    rangeeSelect.appendChild(opt);
+                });
+
+                const siegeSelect = document.createElement('select');
+                siegeSelect.name = `siege${i}`;
+                siegeSelect.id = `siege${i}`;
+
+                function populateSieges() {
+                    const rangee = rangeeSelect.value;
+                    siegeSelect.innerHTML = "";
+                    for (let j = 1; j <= 10; j++) {
+                        const seat = `${rangee}${j}`;
+                        if (!selected.has(seat)) {
+                            const opt = document.createElement('option');
+                            opt.value = seat;
+                            opt.textContent = seat;
+                            siegeSelect.appendChild(opt);
+                        }
+                    }
+                }
+
+                rangeeSelect.addEventListener('change', () => {
+                    const previous = siegeSelect.value;
+                    if (previous) selected.delete(previous);
+                    populateSieges();
+                    selected.add(siegeSelect.value);
+                });
+
+                siegeSelect.addEventListener('change', (e) => {
+                    selected.add(e.target.value);
+                });
+
+                populateSieges();
+
+                div.appendChild(label);
+                div.appendChild(rangeeSelect);
+                div.appendChild(siegeSelect);
+                siegesContainer.appendChild(div);
+            }
+        }
+
+        volSelect.addEventListener('change', () => {
+            if (volSelect.value !== "") {
+                step2.classList.remove('hidden');
+                step3.classList.add('hidden');
+                document.getElementById('confirmationMessage').classList.add('hidden');
+                paymentText.textContent = "";
+                document.getElementById("faceIDAnimation").classList.add("hidden");
+                document.getElementById("fingerAnimation").classList.add("hidden");
+                document.getElementById("fingerScanner").style.background = "#ccc";
+                document.getElementById("faceCircle").style.borderColor = "#ff6600";
+                updatePrix();
+                generateSiegeSelectors();
+            } else {
+                step2.classList.add('hidden');
+                step3.classList.add('hidden');
+                document.getElementById('confirmationMessage').classList.add('hidden');
+            }
+        });
+
+        placesInput.addEventListener('input', () => {
+            updatePrix();
+            generateSiegeSelectors();
+        });
+
+        function nextStep() {
+            updatePrix();
+            step2.classList.add('hidden');
+            step3.classList.remove('hidden');
+        }
+
+        function startFaceID() {
+            document.getElementById("faceIDAnimation").classList.remove("hidden");
+            document.getElementById("fingerAnimation").classList.add("hidden");
+            paymentText.textContent = "";
+
+            const circle = document.getElementById("faceCircle");
+            circle.addEventListener("mouseenter", () => {
+                circle.style.borderColor = "#00cc00";
+                paymentText.textContent = "Scan en cours...";
+                setTimeout(() => {
+                    paymentText.textContent = "✅ Paiement validé par Face ID";
+                    setTimeout(() => {
+                        step3.classList.add('hidden');
+                        document.getElementById('confirmationMessage').classList.remove('hidden');
+                    }, 1500);
+                }, 2000);
+            }, { once: true });
+        }
+
+        function startFingerprint() {
+            document.getElementById("fingerAnimation").classList.remove("hidden");
+            document.getElementById("faceIDAnimation").classList.add("hidden");
+            paymentText.textContent = "";
+
+            const scanner = document.getElementById("fingerScanner");
+            scanner.addEventListener("mousedown", () => {
+                scanner.style.background = "#00cc00";
+                paymentText.textContent = "Vérification de l'empreinte...";
+                setTimeout(() => {
+                    paymentText.textContent = "✅ Paiement validé par empreinte";
+                    setTimeout(() => {
+                        step3.classList.add('hidden');
+                        document.getElementById('confirmationMessage').classList.remove('hidden');
+                    }, 1500);
+                }, 2000);
+            }, { once: true });
+        }
+    </script>
+</body>
+
+</html>
